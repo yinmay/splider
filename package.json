@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/yinmay/splider/issues"
   },
-  "homepage": "https://github.com/yinmay/splider#readme"
+  "homepage": "https://github.com/yinmay/splider#readme",
+  "dependencies": {
+    "cheerio": "^1.0.0-rc.3"
+  }
 }

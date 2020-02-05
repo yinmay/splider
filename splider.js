@@ -1,7 +1,10 @@
 //请求网站数据
 const http = require('https')
 const fs = require('fs')
+const cheerio = require('cheerio')
+
 let url = 'https://www.baidu.com/'
+
 http
   .get(url, res => {
     const { statusCode } = res
@@ -26,7 +29,13 @@ http
     })
     res.on('end', () => {
       //将请求的数据保存到本地
-      fs.writeFileSync('./baidu.html', rawData)
+      //   fs.writeFileSync('./baidu.html', rawData)
+
+      //通过cheerio进行分析
+      let $ = cheerio.load(rawData)
+      $('img').each((index, el) => {
+        console.log($(el).attr('src'))
+      })
     })
   })
   .on('error', err => {
